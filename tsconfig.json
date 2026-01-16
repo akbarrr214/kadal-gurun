@@ -36,10 +36,17 @@
       {
         "name": "next"
       }
+    ],
+    "types": [
+      "node",
+      "react",
+      "react-dom"
     ]
   },
   "include": [
-    "src",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [
