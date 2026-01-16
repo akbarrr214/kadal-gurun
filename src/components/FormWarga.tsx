@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
-import { Loader2, UserPlus, X, AlertCircle } from 'lucide-react';
+import { Loader2, UserPlus, AlertCircle } from 'lucide-react';
 
 interface FormWargaProps {
     onSuccess?: () => void;

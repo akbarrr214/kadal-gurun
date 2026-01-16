@@ -157,14 +157,12 @@ export function analisisBalita(
   beratBadan?: number,
   tinggiBadan?: number,
   lingkarLengan?: number,
-  lingkarKepala?: number,
+  _lingkarKepala?: number,
   umurBulan: number = 0,
   jenisKelamin: string = 'Laki-laki'
 ): HasilAnalisisBalita {
   const indikasiPenyakit: string[] = [];
   let indikator: Indikator = 'hijau';
-  let cat_bb_u = 'Baik'; // Berat Badan Menurut Umur
-  let cat_tb_u = 'Normal'; // Tinggi Badan Menurut Umur
   let cat_bb_tb = 'Gizi Baik'; // Berat Badan Menurut Tinggi Badan (Status Gizi)
 
   const rekomendasi: string[] = [];
@@ -183,16 +181,16 @@ export function analisisBalita(
     if (beratBadan < sd3n) {
       indikasiPenyakit.push('BB Sangat Kurang (Severely Underweight)');
       indikator = 'merah';
-      cat_bb_u = 'Sangat Kurang';
+      indikator = 'merah';
     } else if (beratBadan < sd2n) {
       indikasiPenyakit.push('BB Kurang (Underweight)');
       indikator = updateIndikator(indikator, 'kuning');
-      cat_bb_u = 'Kurang';
+      indikator = updateIndikator(indikator, 'kuning');
     } else if (beratBadan > sd2p) {
       // BB Lebih is risky
       indikasiPenyakit.push('Risiko BB Lebih');
       indikator = updateIndikator(indikator, 'kuning');
-      cat_bb_u = 'Lebih';
+      indikator = updateIndikator(indikator, 'kuning');
     }
   }
 
@@ -204,11 +202,11 @@ export function analisisBalita(
     if (tinggiBadan < sd3n) {
       indikasiPenyakit.push('Sangat Pendek (Severely Stunted)');
       indikator = 'merah';
-      cat_tb_u = 'Sangat Pendek';
+      indikator = 'merah';
     } else if (tinggiBadan < sd2n) {
       indikasiPenyakit.push('Pendek (Stunted)');
       indikator = updateIndikator(indikator, 'kuning');
-      cat_tb_u = 'Pendek';
+      indikator = updateIndikator(indikator, 'kuning');
     }
   }
 
@@ -363,7 +361,7 @@ export interface HasilAnalisisIbuHamil {
 }
 
 export function analisisIbuHamil(
-  usiaKehamilan?: number,
+  _usiaKehamilan?: number,
   _beratBadan?: number,
   _tinggiBadan?: number,
   lingkarLengan?: number,

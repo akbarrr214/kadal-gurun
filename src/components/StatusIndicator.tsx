@@ -8,11 +8,7 @@ interface StatusIndicatorProps {
     className?: string;
 }
 
-const colorMap = {
-    hijau: 'bg-green-500 text-green-700 bg-green-100',
-    kuning: 'bg-yellow-500 text-yellow-700 bg-yellow-100',
-    merah: 'bg-red-500 text-red-700 bg-red-100',
-};
+
 
 const dotColorMap = {
     hijau: 'bg-green-500',
